@@ -41,7 +41,6 @@ def load_budget_data(filepath):
     try:
         with open(filepath, "r") as file:
             data = json.load(file)
-            show_budget_details(data["first_budget"], data["initial_budget"], 0, data["expenses"])
             return data["initial_budget"], data["first_budget"], data["expenses"]
     except FileNotFoundError:
         return 0, 0, {}
@@ -66,6 +65,7 @@ def main():
         initial_budget = float(input("\nПожалуйста, введите имеющееся у вас кол-во денег: "))
         first_budget = initial_budget
     budget = initial_budget
+    show_budget_details(first_budget, initial_budget, 0, expenses)
     while True:
         current_choice = input("\nЧто бы вы хотели сделать?\n1. Добаить траты;\n2. Показать кол-во оставшихся денег;\n3. Обновить бюджет;\n4. Выйти\nВаш выбор 1/2/3/4: ")
         if current_choice == "1":

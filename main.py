@@ -65,7 +65,12 @@ def main():
         initial_budget = float(input("\nПожалуйста, введите имеющееся у вас кол-во денег: "))
         first_budget = initial_budget
     budget = initial_budget
-    show_budget_details(first_budget, initial_budget, 0, expenses)
+    print(f"\nТекущий баланс: {budget}")
+    print("Траты: ")
+    expenses_names = list(expenses.keys())
+    for expense_name in expenses_names:
+        print(f" - {expense_name}: {expenses[expense_name]}")
+    print(f"Начальный бюджет: {first_budget}")
     while True:
         current_choice = input("\nЧто бы вы хотели сделать?\n1. Добаить траты;\n2. Показать кол-во оставшихся денег;\n3. Обновить бюджет;\n4. Выйти\nВаш выбор 1/2/3/4: ")
         if current_choice == "1":
